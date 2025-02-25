@@ -1,21 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perpustakaan Digital</title>
+    <style>
+        /* Styling untuk navigasi */
+        nav {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-weight: bold;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: black;
+            margin-left: 15px;
+        }
+
+        nav a:hover {
+            color: blue;
+        }
+
+        /* Styling untuk kontainer utama */
+        .container {
+            max-width: 400px;
+            margin: 80px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        input {
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input:disabled {
+            background-color: #f0f0f0;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkblue;
+        }
+    </style>
 </head>
 <body>
-	<div>
-    <a href="index.html">Main Menu</a>
-	<a href="contact.html">Contact us</a>
-	<a href="biodata.html">Biodata Diri</a>
-	<form action="">
-	<p>Nama Lengkap : <input type="name" name="nama_lengkap" autofocus></p>
-	<p>Email : <input type="name" name="email" autocomplete="off"></p>
-	<p>Nomor Telepon : <input type="name" name="id" disabled></p>
-	<button type="submit">Kirim Data</button>
-	</form>
-  </div>
+
+    <!-- Navigasi -->
+    <nav>
+        <a href="index.html">Main Menu</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="biodata.html">Biodata Diri</a>
+    </nav>
+
+    <!-- Kontainer Formulir -->
+    <div class="container">
+        <h2>Formulir Pendaftaran</h2>
+        <form action="">
+            <label for="nama_lengkap">Nama Lengkap:</label>
+            <input type="text" id="nama_lengkap" name="nama_lengkap" autofocus>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" autocomplete="off">
+
+            <label for="id">Nomor Telepon:</label>
+            <input type="text" id="id" name="id" disabled>
+
+            <button type="submit">Kirim Data</button>
+        </form>
+    </div>
+
 </body>
 </html>
+
