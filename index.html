@@ -1,22 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perpustakaan Digital</title>
+    <style>
+        /* Styling untuk navigasi */
+        nav {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-weight: bold;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: black;
+            margin-left: 15px;
+        }
+
+        nav a:hover {
+            color: blue;
+        }
+
+        /* Styling untuk konten */
+        .container {
+            max-width: 600px;
+            margin: 80px auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            text-align: justify;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        /* Link eksternal */
+        .external-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-	<div>
-    <a href="index.html">Main Menu</a>
-	<a href="contact.html">Contact us</a>
-	<a href="biodata.html">Biodata Diri</a>
-  </div>
-	<h1>About Me</h1>
-	<h2>Perkenalan</h2>
-	<p>Perkenalkan nama saya Ronal Maruhal Sihite. Ini adalah website yang memberikan rician tentang perpustakaan digital .
-	<i>homepage</i>
-	<b>pertama</b>saya, karena saya baru belajar tentang cara membuat sebuah website<b><i>homepage</i></b>
-	</p>
-    <link rel="stylesheet" href="https://library.usu.ac.id/">usu
+
+    <!-- Navigasi -->
+    <nav>
+        <a href="index.html">Main Menu</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="biodata.html">Biodata Diri</a>
+    </nav>
+
+    <!-- Konten Utama -->
+    <div class="container">
+        <h1>About Me</h1>
+        <h2>Perkenalan</h2>
+        <p>
+            Perkenalkan, nama saya <b>Ronal Maruhal Sihite</b>. Ini adalah website yang memberikan rincian tentang 
+            <b>perpustakaan digital</b>. Website ini merupakan <i>homepage</i> pertama saya, karena saya baru belajar 
+            tentang cara membuat sebuah website.
+        </p>
+    </div>
+
+    <!-- Link ke Perpustakaan USU -->
+    <div class="external-link">
+        <a href="https://library.usu.ac.id/" target="_blank">Kunjungi Perpustakaan USU</a>
+    </div>
+
 </body>
 </html>
+
