@@ -7,13 +7,31 @@
 </head>
 <body>
     <div>
-        <h2>Form Biodata Diri</h2>
-        <nav>
-            <a href="index.html">Main Menu</a>
-            <a href="contact.html">Contact Us</a>
-            <a href="biodata.html">Biodata Diri</a>
-        </nav>
+        nav {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-weight: bold;
+        }
 
+        nav a {
+            text-decoration: none;
+            color: black;
+            margin-left: 15px;
+        }
+
+        nav a:hover {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Main Menu</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="biodata.html">Biodata Diri</a>
+    </nav>
+        <h2>Form Biodata Diri</h2>
         <form action="submit.php" method="POST">
             <fieldset>
                 <legend>Informasi Pribadi</legend>
@@ -98,13 +116,7 @@
                     <textarea id="deskripsi_diri" name="deskripsi_diri" rows="4" cols="40" placeholder="Ceritakan sedikit tentang diri Anda..."></textarea>
                 </p>
             </fieldset>
-
-            <fieldset>
-                <legend>Tambahan</legend>
-                <p>Progress Pengisian Form: <progress value="80" max="100"></progress> 80%</p>
-                <p>Tinggi Badan: <meter value="175" min="100" max="250"></meter> 175 cm</p>
-            </fieldset>
-
+            
             <button type="submit">Kirim Data</button>
             <button type="reset">Reset Form</button>
         </form>
