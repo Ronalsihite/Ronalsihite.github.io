@@ -27,20 +27,35 @@
 <body>
 
     <!-- Navigasi -->
-    <nav>
-        <a href="index.html">Main Menu</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="biodata.html">Biodata Diri</a>
-    </nav>
+  <nav>
+    <a href="index.html">Main Menu</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="biodata.html">Biodata Diri</a>
+    <a href="services.html">Layanan</a>
+    <a href="about.html">Tentang Kami</a>
+</nav>
 
-    <!-- Formulir Pendaftaran -->
-    <h2>Formulir Pendaftaran</h2>
-    <form action="">
-        <p>Nama Lengkap: <input type="text" name="nama_lengkap" autofocus></p>
-        <p>Email: <input type="email" name="email" autocomplete="off"></p>
-        <p>Nomor Telepon: <input type="text" name="id" disabled></p>
-        <button type="submit">Kirim Data</button>
-    </form>
+<!-- Formulir Pendaftaran -->
+<h2>Formulir Pendaftaran</h2>
+<form action="">
+    <p>Nama Lengkap: <input type="text" name="nama_lengkap" autofocus></p>
+    <p>Email: <input type="email" name="email" autocomplete="off"></p>
+    <p>Nomor Telepon: <input type="text" name="id" disabled></p>
+    <p>Alamat: <input type="text" name="alamat"></p>
+    <p>Tanggal Lahir: <input type="date" name="tanggal_lahir"></p>
+    <p>Jenis Kelamin: 
+        <select name="jenis_kelamin">
+            <option value="laki-laki">Laki-laki</option>
+            <option value="perempuan">Perempuan</option>
+        </select>
+    </p>
+    <p>Hobi: 
+        <input type="checkbox" name="hobi" value="olahraga"> Olahraga
+        <input type="checkbox" name="hobi" value="musik"> Musik
+        <input type="checkbox" name="hobi" value="membaca"> Membaca
+    </p>
+    <button type="submit">Kirim Data</button>
+</form>
 
 </body>
 </html>
