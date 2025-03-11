@@ -6,13 +6,13 @@
     <title>Perpustakaan Ronal Maruhal Sihite</title>
     <style>
         body {
-            background-color: #d9f2f2;
+            background-color: #f9f7dc;
             margin: 0;
             font-family: Arial, sans-serif;
         }
 
         .header {
-            background-color: #006e5f;
+            background-color: #425d9b;
             color: white;
             text-align: center;
             padding: 20px;
@@ -23,9 +23,8 @@
 
         nav {
             position: absolute;
-            top: 50%;
+            top: 10px;
             right: 20px;
-            transform: translateY(-50%);
         }
 
         nav a {
@@ -34,10 +33,13 @@
             margin-left: 15px;
             font-weight: bold;
             font-size: 14px;
+            padding: 8px 12px;
         }
 
         nav a:hover {
-            color: #FFD700;
+            background-color: #FFD700;
+            color: #333;
+            border-radius: 5px;
         }
 
         .container {
@@ -52,6 +54,7 @@
 
         h1, h2 {
             text-align: center;
+            color: #425d9b;
         }
 
         .external-link {
@@ -59,8 +62,18 @@
             margin-top: 20px;
         }
 
+        .external-link a {
+            color: #425d9b;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .external-link a:hover {
+            color: #FFD700;
+        }
+
         .footer {
-            background-color: #006e5f;
+            background-color: #425d9b;
             color: white;
             text-align: center;
             padding: 10px;
@@ -71,20 +84,19 @@
     </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="contact.html">About US</a>
-        <a href="biodata.html">Contact Us</a>
-    </nav>
-    
-    <div class="header">Tentang Kami</div>
-        
+    <div class="header">
+        Tentang Kami
+        <nav>
+            <a href="index.html">Homepage</a>
+            <a href="contact.html">About Us</a>
+            <a href="biodata.html">Contact Us</a>
+        </nav>
     </div>
 
     <div class="container">
         <h1>Selamat Datang di Perpustakaan Saya!</h1>
   
-       <p>
+        <p>
             Perkenalkan, nama saya <b>Ronal Maruhal Sihite</b>. Saya adalah seorang pemula dalam dunia pengembangan web, dan website ini merupakan proyek pertama saya. 
             Website ini dibuat sebagai bagian dari pembelajaran saya dalam memahami cara kerja HTML, CSS, dan nantinya mungkin akan saya kembangkan lebih lanjut menggunakan JavaScript dan teknologi lainnya.
         </p>
@@ -110,3 +122,4 @@
 
 </body>
 </html>
+
