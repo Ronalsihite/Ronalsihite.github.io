@@ -5,30 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perpustakaan Digital</title>
     <style>
-        /* Styling untuk navigasi */
-        nav {
-            position: absolute;
-            top: 10px;
-            right: 20px;
+        body {
+            background-color: #d9f2f2; /* Warna latar belakang utama */
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background-color: #006e5f; /* Warna hijau bagian atas */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
             font-weight: bold;
         }
 
+        nav {
+            background-color: #004d40;
+            padding: 10px;
+            text-align: right;
+        }
+
         nav a {
+            color: white;
             text-decoration: none;
-            color: black;
-            margin-left: 15px;
+            margin: 0 15px;
+            font-weight: bold;
         }
 
         nav a:hover {
-            color: blue;
+            color: #FFD700;
         }
 
-        /* Styling untuk konten */
         .container {
-            max-width: 600px;
-            margin: 80px auto;
+            background-color: white;
+            margin: 50px auto;
+            width: 80%;
             padding: 20px;
-            font-family: Arial, sans-serif;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
             text-align: justify;
         }
 
@@ -36,50 +51,60 @@
             text-align: center;
         }
 
-        /* Link eksternal */
         .external-link {
-            display: block;
             text-align: center;
             margin-top: 20px;
+        }
+
+        .footer {
+            background-color: #006e5f;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigasi -->
+    <div class="header">
+        Perpustakaan Digital
+    </div>
+
     <nav>
         <a href="index.html">Main Menu</a>
         <a href="contact.html">Contact Us</a>
         <a href="biodata.html">Biodata Diri</a>
     </nav>
 
-    <!-- Konten Utama -->
     <div class="container">
         <h1>About Me</h1>
         <h2>Perkenalan</h2>
        <p>
-    Perkenalkan, nama saya <b>Ronal Maruhal Sihite</b>. Saya adalah seorang pemula dalam dunia pengembangan web, dan website ini merupakan proyek pertama saya. 
-    Website ini dibuat sebagai bagian dari pembelajaran saya dalam memahami cara kerja HTML, CSS, dan nantinya mungkin akan saya kembangkan lebih lanjut menggunakan JavaScript dan teknologi lainnya.
-</p>
+            Perkenalkan, nama saya <b>Ronal Maruhal Sihite</b>. Saya adalah seorang pemula dalam dunia pengembangan web, dan website ini merupakan proyek pertama saya. 
+            Website ini dibuat sebagai bagian dari pembelajaran saya dalam memahami cara kerja HTML, CSS, dan nantinya mungkin akan saya kembangkan lebih lanjut menggunakan JavaScript dan teknologi lainnya.
+        </p>
 
-<p>
-    Website ini berisi informasi mengenai <b>perpustakaan digital</b>, yang merupakan salah satu inovasi dalam dunia pendidikan dan literasi. 
-    Dengan adanya perpustakaan digital, pengguna dapat dengan mudah mengakses berbagai koleksi buku, jurnal, dan referensi ilmiah secara online tanpa harus datang langsung ke perpustakaan fisik.
-    Teknologi ini sangat membantu, terutama dalam era digital saat ini, di mana akses informasi menjadi lebih cepat dan efisien.
-</p>
+        <p>
+            Website ini berisi informasi mengenai <b>perpustakaan digital</b>, yang merupakan salah satu inovasi dalam dunia pendidikan dan literasi. 
+            Dengan adanya perpustakaan digital, pengguna dapat dengan mudah mengakses berbagai koleksi buku, jurnal, dan referensi ilmiah secara online tanpa harus datang langsung ke perpustakaan fisik.
+        </p>
 
-<p>
-    Saya berharap melalui website ini, saya tidak hanya bisa belajar lebih dalam mengenai pengembangan web, tetapi juga dapat berbagi informasi bermanfaat dengan orang lain.
-    Saya berencana untuk terus memperbarui dan meningkatkan fitur-fitur dalam website ini agar lebih interaktif dan informatif. Jika Anda memiliki saran atau kritik, jangan ragu untuk menghubungi saya melalui halaman <i>Contact Us</i>.
-</p>
-
+        <p>
+            Saya berharap melalui website ini, saya tidak hanya bisa belajar lebih dalam mengenai pengembangan web, tetapi juga dapat berbagi informasi bermanfaat dengan orang lain.
+            Saya berencana untuk terus memperbarui dan meningkatkan fitur-fitur dalam website ini agar lebih interaktif dan informatif.
+        </p>
     </div>
 
-    <!-- Link ke Perpustakaan USU -->
     <div class="external-link">
         <a href="https://library.usu.ac.id/" target="_blank">Kunjungi Perpustakaan USU</a>
+    </div>
+    <br>
+    <div class="footer">
+        &copy; 2025 Perpustakaan Ronal Maruhal Sihite
     </div>
 
 </body>
 </html>
-
