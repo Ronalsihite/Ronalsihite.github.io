@@ -6,31 +6,34 @@
     <title>Perpustakaan Ronal Maruhal Sihite</title>
     <style>
         body {
-            background-color: #d9f2f2; /* Warna latar belakang utama */
+            background-color: #d9f2f2;
             margin: 0;
             font-family: Arial, sans-serif;
         }
 
         .header {
-            background-color: #006e5f; /* Warna hijau bagian atas */
+            background-color: #006e5f;
             color: white;
             text-align: center;
             padding: 20px;
             font-size: 24px;
             font-weight: bold;
+            position: relative;
         }
 
         nav {
-            background-color: #004d40;
-            padding: 10px;
-            text-align: right;
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
+            margin-left: 15px;
             font-weight: bold;
+            font-size: 14px;
         }
 
         nav a:hover {
@@ -68,20 +71,19 @@
     </style>
 </head>
 <body>
-
+<nav>
+            <a href="index.html">Home</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="biodata.html">Biodata</a>
+        </nav>
     <div class="header">
         Perpustakaan Digital
+        
     </div>
 
-    <nav>
-        <a href="index.html">Main Menu</a>
-        <a href="contact.html">About Us</a>
-        <a href="biodata.html">Contact Us</a>
-    </nav>
-<br>
     <div class="container">
-        <h1>Selamat Datang di Perputakaan Saya!</h1>
-        
+        <h1>Selamat Datang di Perpustakaan Saya!</h1>
+  
        <p>
             Perkenalkan, nama saya <b>Ronal Maruhal Sihite</b>. Saya adalah seorang pemula dalam dunia pengembangan web, dan website ini merupakan proyek pertama saya. 
             Website ini dibuat sebagai bagian dari pembelajaran saya dalam memahami cara kerja HTML, CSS, dan nantinya mungkin akan saya kembangkan lebih lanjut menggunakan JavaScript dan teknologi lainnya.
