@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dino Game</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        canvas {
+            background-color: white;
+            display: block;
+            margin: auto;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Game Dino</h1>
+    <canvas id="gameCanvas" width="800" height="200"></canvas>
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        let dino = { x: 50, y: 150, width: 30, height: 30, dy: 0, gravity: 0.6, jumpPower: -10 };
+        let obstacles = [];
+        let gameOver = false;
+        let score = 0;
+
+        document.addEventListener("keydown", function (event) {
+            if (event.code === "Space" && dino.y === 150) {
+                dino.dy = dino.jumpPower;
+            }
+        });
+
+        function update() {
+            if (gameOver) return;
+
+            dino.dy += dino.gravity;
+            dino.y += dino.dy;
+            if (dino.y > 150) dino.y = 150;
+
+            if (Math.random() < 0.02) {
+                obstacles.push({ x: 800, y: 170, width: 20, height: 30 });
+            }
+
+            obstacles.forEach((obs, index) => {
+                obs.x -= 5;
+                if (obs.x + obs.width < 0) {
+                    obstacles.splice(index, 1);
+                    score++;
+                }
+                if (
+                    dino.x < obs.x + obs.width &&
+                    dino.x + dino.width > obs.x &&
+                    dino.y < obs.y + obs.height &&
+                    dino.y + dino.height > obs.y
+                ) {
+                    gameOver = true;
+                }
+            });
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "black";
+            ctx.fillRect(dino.x, dino.y, dino.width, dino.height);
+            obstacles.forEach(obs => {
+                ctx.fillRect(obs.x, obs.y, obs.width, obs.height);
+            });
+            ctx.font = "20px Arial";
+            ctx.fillText("Score: " + score, 700, 30);
+            if (gameOver) {
+                ctx.fillText("Game Over! Refresh untuk main lagi.", 300, 100);
+            }
+        }
+
+        function loop() {
+            update();
+            draw();
+            requestAnimationFrame(loop);
+        }
+
+        loop();
+    </script>
+</body>
+</html>
