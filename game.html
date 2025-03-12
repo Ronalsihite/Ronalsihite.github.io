@@ -3,71 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Dino Game</title>
+    <title>Game Dinosaurus 3D</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cannon-es/0.20.0/cannon-es.js"></script>
     <style>
-        body { margin: 0; overflow: hidden; background-color: #87CEEB; }
+        body { margin: 0; overflow: hidden; }
         canvas { display: block; }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
     <script>
-        let scene = new THREE.Scene();
-        let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        let renderer = new THREE.WebGLRenderer();
+        // Inisialisasi scene
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
         
-        let light = new THREE.DirectionalLight(0xffffff, 1);
+        // Tambahkan lampu
+        const light = new THREE.DirectionalLight(0xffffff, 1);
         light.position.set(5, 5, 5).normalize();
         scene.add(light);
-        
-        let geometry = new THREE.SphereGeometry(1, 32, 32);
-        let material = new THREE.MeshBasicMaterial({ color: 0x8B4513 });
-        let dino = new THREE.Mesh(geometry, material);
+
+        // Buat karakter dinosaurus
+        const geometry = new THREE.SphereGeometry(1, 16, 16);
+        const material = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
+        const dino = new THREE.Mesh(geometry, material);
+        dino.position.y = 1;
         scene.add(dino);
-        
-        let obstacleGeo = new THREE.BoxGeometry(1, 2, 1);
-        let obstacleMat = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-        let obstacle = new THREE.Mesh(obstacleGeo, obstacleMat);
-        obstacle.position.x = 5;
-        scene.add(obstacle);
+
+        // Buat tanah
+        const groundGeometry = new THREE.PlaneGeometry(100, 100);
+        const groundMaterial = new THREE.MeshStandardMaterial({ color: 0x654321 });
+        const ground = new THREE.Mesh(groundGeometry, groundMaterial);
+        ground.rotation.x = -Math.PI / 2;
+        scene.add(ground);
         
         camera.position.z = 5;
-        
-        let isJumping = false;
-        let velocity = 0;
-        let gravity = -0.01;
-        
+
+        // Buat penghalang
+        const obstacleGeometry = new THREE.BoxGeometry(1, 2, 1);
+        const obstacleMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000 });
+        const obstacle = new THREE.Mesh(obstacleGeometry, obstacleMaterial);
+        obstacle.position.set(5, 1, 0);
+        scene.add(obstacle);
+
+        // Animasi
         function animate() {
             requestAnimationFrame(animate);
-            
-            if (isJumping) {
-                velocity += gravity;
-                dino.position.y += velocity;
-                if (dino.position.y <= 0) {
-                    dino.position.y = 0;
-                    isJumping = false;
-                    velocity = 0;
-                }
-            }
-            
-            obstacle.position.x -= 0.05;
+            obstacle.position.x -= 0.05; // Gerakkan penghalang ke kiri
             if (obstacle.position.x < -5) {
-                obstacle.position.x = 5;
+                obstacle.position.x = 5; // Reset posisi penghalang
             }
-            
             renderer.render(scene, camera);
         }
-        
-        document.addEventListener("keydown", (event) => {
-            if (event.code === "Space" && !isJumping) {
-                isJumping = true;
-                velocity = 0.2;
+        animate();
+
+        // Event lompat
+        window.addEventListener("keydown", (event) => {
+            if (event.code === "Space" && dino.position.y === 1) {
+                let jumpHeight = 0;
+                const jumpInterval = setInterval(() => {
+                    if (jumpHeight < 2) {
+                        dino.position.y += 0.1;
+                        jumpHeight += 0.1;
+                    } else {
+                        clearInterval(jumpInterval);
+                        setTimeout(() => {
+                            const fallInterval = setInterval(() => {
+                                if (dino.position.y > 1) {
+                                    dino.position.y -= 0.1;
+                                } else {
+                                    clearInterval(fallInterval);
+                                    dino.position.y = 1;
+                                }
+                            }, 20);
+                        }, 200);
+                    }
+                }, 20);
             }
         });
-        
-        animate();
     </script>
 </body>
 </html>
+
