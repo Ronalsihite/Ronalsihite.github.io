@@ -3,87 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Dinosaurus 3D</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cannon-es/0.20.0/cannon-es.js"></script>
+    <title>Dino Game</title>
     <style>
-        body { margin: 0; overflow: hidden; }
-        canvas { display: block; }
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        canvas {
+            background-color: white;
+            display: block;
+            margin: auto;
+            border: 2px solid black;
+        }
     </style>
 </head>
 <body>
+    <h1>Game Dino</h1>
+    <canvas id="gameCanvas" width="800" height="200"></canvas>
     <script>
-        // Inisialisasi scene
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.domElement);
-        
-        // Tambahkan lampu
-        const light = new THREE.DirectionalLight(0xffffff, 1);
-        light.position.set(5, 5, 5).normalize();
-        scene.add(light);
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
 
-        // Buat karakter dinosaurus
-        const geometry = new THREE.SphereGeometry(1, 16, 16);
-        const material = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
-        const dino = new THREE.Mesh(geometry, material);
-        dino.position.y = 1;
-        scene.add(dino);
+        let dino = { x: 50, y: 150, width: 30, height: 30, dy: 0, gravity: 0.6, jumpPower: -10 };
+        let obstacles = [];
+        let gameOver = false;
+        let score = 0;
 
-        // Buat tanah
-        const groundGeometry = new THREE.PlaneGeometry(100, 100);
-        const groundMaterial = new THREE.MeshStandardMaterial({ color: 0x654321 });
-        const ground = new THREE.Mesh(groundGeometry, groundMaterial);
-        ground.rotation.x = -Math.PI / 2;
-        scene.add(ground);
-        
-        camera.position.z = 5;
-
-        // Buat penghalang
-        const obstacleGeometry = new THREE.BoxGeometry(1, 2, 1);
-        const obstacleMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000 });
-        const obstacle = new THREE.Mesh(obstacleGeometry, obstacleMaterial);
-        obstacle.position.set(5, 1, 0);
-        scene.add(obstacle);
-
-        // Animasi
-        function animate() {
-            requestAnimationFrame(animate);
-            obstacle.position.x -= 0.05; // Gerakkan penghalang ke kiri
-            if (obstacle.position.x < -5) {
-                obstacle.position.x = 5; // Reset posisi penghalang
-            }
-            renderer.render(scene, camera);
-        }
-        animate();
-
-        // Event lompat
-        window.addEventListener("keydown", (event) => {
-            if (event.code === "Space" && dino.position.y === 1) {
-                let jumpHeight = 0;
-                const jumpInterval = setInterval(() => {
-                    if (jumpHeight < 2) {
-                        dino.position.y += 0.1;
-                        jumpHeight += 0.1;
-                    } else {
-                        clearInterval(jumpInterval);
-                        setTimeout(() => {
-                            const fallInterval = setInterval(() => {
-                                if (dino.position.y > 1) {
-                                    dino.position.y -= 0.1;
-                                } else {
-                                    clearInterval(fallInterval);
-                                    dino.position.y = 1;
-                                }
-                            }, 20);
-                        }, 200);
-                    }
-                }, 20);
+        document.addEventListener("keydown", function (event) {
+            if (event.code === "Space" && dino.y === 150) {
+                dino.dy = dino.jumpPower;
             }
         });
+
+        function update() {
+            if (gameOver) return;
+
+            dino.dy += dino.gravity;
+            dino.y += dino.dy;
+            if (dino.y > 150) dino.y = 150;
+
+            if (Math.random() < 0.02) {
+                obstacles.push({ x: 800, y: 170, width: 20, height: 30 });
+            }
+
+            obstacles.forEach((obs, index) => {
+                obs.x -= 5;
+                if (obs.x + obs.width < 0) {
+                    obstacles.splice(index, 1);
+                    score++;
+                }
+                if (
+                    dino.x < obs.x + obs.width &&
+                    dino.x + dino.width > obs.x &&
+                    dino.y < obs.y + obs.height &&
+                    dino.y + dino.height > obs.y
+                ) {
+                    gameOver = true;
+                }
+            });
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "black";
+            ctx.fillRect(dino.x, dino.y, dino.width, dino.height);
+            obstacles.forEach(obs => {
+                ctx.fillRect(obs.x, obs.y, obs.width, obs.height);
+            });
+            ctx.font = "20px Arial";
+            ctx.fillText("Score: " + score, 700, 30);
+            if (gameOver) {
+                ctx.fillText("Game Over! Refresh untuk main lagi.", 300, 100);
+            }
+        }
+
+        function loop() {
+            update();
+            draw();
+            requestAnimationFrame(loop);
+        }
+
+        loop();
     </script>
 </body>
 </html>
-
