@@ -3,99 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Dinosaurus HD</title>
+    <title>3D Dino Game</title>
     <style>
-        body {
-            text-align: center;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-        }
-        canvas {
-            background: skyblue;
-            display: block;
-            margin: auto;
-            border-bottom: 5px solid green;
-        }
+        body { margin: 0; overflow: hidden; background-color: #87CEEB; }
+        canvas { display: block; }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
-    <h1>Game Dinosaurus HD</h1>
-    <canvas id="gameCanvas" width="800" height="300"></canvas>
     <script>
-        const canvas = document.getElementById("gameCanvas");
-        const ctx = canvas.getContext("2d");
-
-        let dino = { x: 50, y: 220, width: 50, height: 50, velocityY: 0, jumping: false };
-        let obstacles = [];
-        let gravity = 0.5;
-        let gameOver = false;
-        let score = 0;
-
-        function drawDino() {
-            ctx.fillStyle = "brown";
-            ctx.fillRect(dino.x, dino.y, dino.width, dino.height);
-        }
-
-        function drawObstacles() {
-            ctx.fillStyle = "red";
-            obstacles.forEach(obstacle => {
-                ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
-            });
-        }
-
-        function updateGame() {
-            if (!gameOver) {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                drawDino();
-                drawObstacles();
-                ctx.fillStyle = "black";
-                ctx.fillText("Score: " + score, 700, 20);
-
-                dino.velocityY += gravity;
-                dino.y += dino.velocityY;
-                if (dino.y > 220) {
-                    dino.y = 220;
-                    dino.jumping = false;
+        let scene = new THREE.Scene();
+        let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        let renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+        
+        let light = new THREE.DirectionalLight(0xffffff, 1);
+        light.position.set(5, 5, 5).normalize();
+        scene.add(light);
+        
+        let geometry = new THREE.SphereGeometry(1, 32, 32);
+        let material = new THREE.MeshBasicMaterial({ color: 0x8B4513 });
+        let dino = new THREE.Mesh(geometry, material);
+        scene.add(dino);
+        
+        let obstacleGeo = new THREE.BoxGeometry(1, 2, 1);
+        let obstacleMat = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+        let obstacle = new THREE.Mesh(obstacleGeo, obstacleMat);
+        obstacle.position.x = 5;
+        scene.add(obstacle);
+        
+        camera.position.z = 5;
+        
+        let isJumping = false;
+        let velocity = 0;
+        let gravity = -0.01;
+        
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            if (isJumping) {
+                velocity += gravity;
+                dino.position.y += velocity;
+                if (dino.position.y <= 0) {
+                    dino.position.y = 0;
+                    isJumping = false;
+                    velocity = 0;
                 }
-
-                obstacles.forEach((obstacle, index) => {
-                    obstacle.x -= 5;
-                    if (obstacle.x + obstacle.width < 0) {
-                        obstacles.splice(index, 1);
-                        score++;
-                    }
-
-                    if (dino.x < obstacle.x + obstacle.width &&
-                        dino.x + dino.width > obstacle.x &&
-                        dino.y < obstacle.y + obstacle.height &&
-                        dino.y + dino.height > obstacle.y) {
-                        gameOver = true;
-                        alert("Game Over! Skor: " + score);
-                        location.reload();
-                    }
-                });
-
-                requestAnimationFrame(updateGame);
             }
-        }
-
-        function spawnObstacle() {
-            let size = Math.random() * 30 + 20;
-            obstacles.push({ x: canvas.width, y: 250 - size, width: size, height: size });
-            if (!gameOver) {
-                setTimeout(spawnObstacle, Math.random() * 2000 + 1000);
+            
+            obstacle.position.x -= 0.05;
+            if (obstacle.position.x < -5) {
+                obstacle.position.x = 5;
             }
+            
+            renderer.render(scene, camera);
         }
-
-        document.addEventListener("keydown", function (event) {
-            if (event.code === "Space" && !dino.jumping) {
-                dino.velocityY = -10;
-                dino.jumping = true;
+        
+        document.addEventListener("keydown", (event) => {
+            if (event.code === "Space" && !isJumping) {
+                isJumping = true;
+                velocity = 0.2;
             }
         });
-
-        spawnObstacle();
-        updateGame();
+        
+        animate();
     </script>
 </body>
 </html>
