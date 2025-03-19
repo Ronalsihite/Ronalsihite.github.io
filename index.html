@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perpustakaan Ronal Maruhal Sihite</title>
     <style>
+        /* Body */
         body {
             background-color: #f9f7dc;
             margin: 0;
             font-family: Arial, sans-serif;
         }
 
+        /* Header */
         .header {
             background-color: #425d9b;
             color: white;
@@ -21,6 +24,7 @@
             position: relative;
         }
 
+        /* Navigation */
         nav {
             position: absolute;
             top: 10px;
@@ -42,6 +46,7 @@
             border-radius: 5px;
         }
 
+        /* Container */
         .container {
             background-color: white;
             margin: 50px auto;
@@ -52,11 +57,14 @@
             text-align: justify;
         }
 
-        h1, h2 {
+        /* Titles */
+        h1,
+        h2 {
             text-align: center;
             color: #425d9b;
         }
 
+        /* External link */
         .external-link {
             text-align: center;
             margin-top: 20px;
@@ -72,6 +80,7 @@
             color: #FFD700;
         }
 
+        /* Footer */
         .footer {
             background-color: #425d9b;
             color: white;
@@ -81,11 +90,41 @@
             bottom: 0;
             width: 100%;
         }
+
+        /* Search Container */
+        .search-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .search-container input {
+            padding: 10px;
+            width: 60%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .search-container button {
+            padding: 10px 20px;
+            background-color: #425d9b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .search-container button:hover {
+            background-color: #FFD700;
+        }
     </style>
 </head>
+
 <body>
+
+    <!-- Header -->
     <div class="header">
-        Tentang Kami
+        Perpustakaan Ronal
         <nav>
             <a href="index.html">Homepage</a>
             <a href="contact.html">About Us</a>
@@ -93,33 +132,67 @@
         </nav>
     </div>
 
+    <!-- Main Content -->
     <div class="container">
         <h1>Selamat Datang di Perpustakaan Saya!</h1>
-  
+
         <p>
-            Perkenalkan, nama saya <b>Ronal Maruhal Sihite</b>. Saya adalah seorang pemula dalam dunia pengembangan web, dan website ini merupakan proyek pertama saya. 
-            Website ini dibuat sebagai bagian dari pembelajaran saya dalam memahami cara kerja HTML, CSS, dan nantinya mungkin akan saya kembangkan lebih lanjut menggunakan JavaScript dan teknologi lainnya.
+            Perkenalkan, nama saya <b>Ronal Maruhal Sihite</b>. Saya adalah seorang pemula dalam dunia pengembangan web,
+            dan website ini merupakan proyek pertama saya. Website ini dibuat sebagai bagian dari pembelajaran saya dalam
+            memahami cara kerja HTML, CSS, dan nantinya mungkin akan saya kembangkan lebih lanjut menggunakan JavaScript
+            dan teknologi lainnya.
         </p>
 
         <p>
-            Website ini berisi informasi mengenai <b>perpustakaan digital</b>, yang merupakan salah satu inovasi dalam dunia pendidikan dan literasi. 
-            Dengan adanya perpustakaan digital, pengguna dapat dengan mudah mengakses berbagai koleksi buku, jurnal, dan referensi ilmiah secara online tanpa harus datang langsung ke perpustakaan fisik.
+            Website ini berisi informasi mengenai <b>perpustakaan digital</b>, yang merupakan salah satu inovasi dalam
+            dunia pendidikan dan literasi. Dengan adanya perpustakaan digital, pengguna dapat dengan mudah mengakses
+            berbagai koleksi buku, jurnal, dan referensi ilmiah secara online tanpa harus datang langsung ke perpustakaan
+            fisik.
         </p>
 
         <p>
-            Saya berharap melalui website ini, saya tidak hanya bisa belajar lebih dalam mengenai pengembangan web, tetapi juga dapat berbagi informasi bermanfaat dengan orang lain.
-            Saya berencana untuk terus memperbarui dan meningkatkan fitur-fitur dalam website ini agar lebih interaktif dan informatif.
+            Saya berharap melalui website ini, saya tidak hanya bisa belajar lebih dalam mengenai pengembangan web,
+            tetapi juga dapat berbagi informasi bermanfaat dengan orang lain. Saya berencana untuk terus memperbarui dan
+            meningkatkan fitur-fitur dalam website ini agar lebih interaktif dan informatif.
         </p>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Cari sesuatu...">
+            <button onclick="searchFunction()">Cari</button>
+        </div>
     </div>
 
+    <!-- External Link -->
     <div class="external-link">
         <a href="https://library.usu.ac.id/" target="_blank">Kunjungi Perpustakaan USU</a>
     </div>
-    <br>
+<br>
+    <!-- Footer -->
     <div class="footer">
         &copy; 2025 Perpustakaan Ronal Maruhal Sihite
     </div>
 
+    <script>
+        function searchFunction() {
+            var input, filter, container, p, txtValue;
+            input = document.getElementById('searchInput');
+            filter = input.value.toUpperCase();
+            container = document.getElementsByClassName('container')[0];
+            p = container.getElementsByTagName('p');
+
+            for (var i = 0; i < p.length; i++) {
+                txtValue = p[i].textContent || p[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    p[i].style.display = "";
+                } else {
+                    p[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
 </body>
+
 </html>
 
