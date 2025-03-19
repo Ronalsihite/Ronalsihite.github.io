@@ -5,22 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perpustakaan Ronal Maruhal Sihite</title>
+    <script>
+        // Fungsi untuk menampilkan pesan
+        function sayHalo() {
+            alert('Halo!');
+        }
+    </script>
     <style>
         /* Body */
         body {
             background-color: #f9f7dc;
             margin: 0;
             font-family: Arial, sans-serif;
+            font-size: 14px; /* Ukuran font untuk body */
             padding-top: 80px; /* Menambahkan padding agar konten tidak tertutup oleh header */
         }
 
         /* Header */
         .header {
-            background-color: #425d9b;
+            background-color: #3b5998; /* Biru tua */
             color: white;
             text-align: center;
-            padding: 20px;
-            font-size: 24px;
+            padding: 15px 0;
+            font-size: 22px; /* Ukuran font untuk header */
             font-weight: bold;
             position: fixed;
             top: 0;
@@ -39,9 +46,9 @@
         nav a {
             color: white;
             text-decoration: none;
-            margin-left: 15px;
+            margin-left: 10px;
             font-weight: bold;
-            font-size: 14px;
+            font-size: 12px; /* Ukuran font untuk navigasi */
             padding: 8px 12px;
         }
 
@@ -66,7 +73,8 @@
         h1,
         h2 {
             text-align: center;
-            color: #425d9b;
+            color: #3b5998;
+            font-size: 24px; /* Ukuran font untuk judul utama */
         }
 
         /* External link */
@@ -76,7 +84,7 @@
         }
 
         .external-link a {
-            color: #425d9b;
+            color: #3b5998;
             font-weight: bold;
             text-decoration: none;
         }
@@ -87,13 +95,14 @@
 
         /* Footer */
         .footer {
-            background-color: #425d9b;
+            background-color: #3b5998;
             color: white;
             text-align: center;
             padding: 10px;
             position: relative;
             bottom: 0;
             width: 100%;
+            font-size: 14px; /* Ukuran font untuk footer */
         }
 
         /* Search Container */
@@ -107,16 +116,18 @@
             width: 60%;
             border-radius: 5px;
             border: 1px solid #ccc;
+            font-size: 14px; /* Ukuran font untuk input */
         }
 
         .search-container button {
             padding: 10px 20px;
-            background-color: #425d9b;
+            background-color: #3b5998;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             margin-left: 10px;
+            font-size: 14px; /* Ukuran font untuk button */
         }
 
         .search-container button:hover {
@@ -140,7 +151,7 @@
     <!-- Main Content -->
     <div class="container">
         <h1>Selamat Datang di Perpustakaan Saya!</h1>
-
+<button onclick="sayHalo()">Klik Saya!</button>
         <p>
             Perkenalkan, nama saya <b>Ronal Maruhal Sihite</b>. Saya adalah seorang pemula dalam dunia pengembangan web,
             dan website ini merupakan proyek pertama saya. Website ini dibuat sebagai bagian dari pembelajaran saya dalam
@@ -200,6 +211,7 @@
 </body>
 
 </html>
+
 
 </body>
 
