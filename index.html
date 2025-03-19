@@ -9,52 +9,44 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Fungsi untuk menampilkan pesan
         function sayHalo() {
             alert('Halo! Selamat Datang di Website Saya 😊');
         }
     </script>
     <style>
-        /* Body */
         body {
             background-color: #f9f7dc;
             margin: 0;
             font-family: Arial, sans-serif;
-            font-size: 14px; /* Ukuran font untuk body */
-            padding-top: 80px; /* Menambahkan padding agar konten tidak tertutup oleh header */
+            font-size: 14px;
+            padding-top: 80px;
         }
-.logo {
-    height: 10px; /* Sesuaikan tinggi logo */
-    width: auto; /* Menyesuaikan lebar proporsional */
-    }
-        /* Header */
+
         .header {
-            background-color: #3b5998; /* Biru tua */
+            background-color: #3b5998;
             color: white;
-            text-align: center;
-            padding: 15px 0;
-            font-size: 22px; /* Ukuran font untuk header */
-            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 1000; /* Memastikan header berada di atas konten lainnya */
+            z-index: 1000;
         }
 
-        /* Navigation */
-        nav {
-            position: absolute;
-            top: 10px;
-            right: 20px;
+        .logo {
+            height: 50px;
+            width: auto;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin-left: 10px;
+            margin-left: 15px;
             font-weight: bold;
-            font-size: 12px; /* Ukuran font untuk navigasi */
+            font-size: 14px;
             padding: 8px 12px;
         }
 
@@ -64,7 +56,6 @@
             border-radius: 5px;
         }
 
-        /* Container */
         .container {
             background-color: white;
             margin: 50px auto;
@@ -75,15 +66,11 @@
             text-align: justify;
         }
 
-        /* Titles */
-        h1,
-        h2 {
+        h1, h2 {
             text-align: center;
             color: #3b5998;
-            font-size: 24px; /* Ukuran font untuk judul utama */
         }
 
-        /* External link */
         .external-link {
             text-align: center;
             margin-top: 20px;
@@ -99,19 +86,15 @@
             color: #FFD700;
         }
 
-        /* Footer */
         .footer {
             background-color: #3b5998;
             color: white;
             text-align: center;
             padding: 10px;
-            position: relative;
-            bottom: 0;
             width: 100%;
-            font-size: 14px; /* Ukuran font untuk footer */
+            position: relative;
         }
 
-        /* Search Container */
         .search-container {
             text-align: center;
             margin-top: 30px;
@@ -122,7 +105,7 @@
             width: 60%;
             border-radius: 5px;
             border: 1px solid #ccc;
-            font-size: 14px; /* Ukuran font untuk input */
+            font-size: 14px;
         }
 
         .search-container button {
@@ -133,7 +116,6 @@
             border-radius: 5px;
             cursor: pointer;
             margin-left: 10px;
-            font-size: 14px; /* Ukuran font untuk button */
         }
 
         .search-container button:hover {
@@ -142,9 +124,8 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <div class="header d-flex align-items-center justify-content-between px-4">
-        <img src="logo.png" class="img-fluid" alt="Universitas Sumatera Utara">
+    <div class="header">
+        <img src="logo.png" class="logo" alt="Universitas Sumatera Utara">
         <nav>
             <a href="index.html">Homepage</a>
             <a href="contact.html">About Us</a>
@@ -152,72 +133,44 @@
         </nav>
     </div>
 
-    <!-- Main Content -->
     <div class="container">
         <h1>Selamat Datang di Perpustakaan Saya!</h1>
-<button onclick="sayHalo()">Klik!</button>
+        <button onclick="sayHalo()" class="btn btn-primary">Klik!</button>
         <p>
-            Perkenalkan, nama saya <b>Ronal Maruhal Sihite</b>. Saya adalah seorang pemula dalam dunia pengembangan web,
-            dan website ini merupakan proyek pertama saya. Website ini dibuat sebagai bagian dari pembelajaran saya dalam
-            memahami cara kerja HTML, CSS, dan nantinya mungkin akan saya kembangkan lebih lanjut menggunakan JavaScript
-            dan teknologi lainnya.
+            Perkenalkan, nama saya <b>Ronal Maruhal Sihite</b>. Saya adalah seorang pemula dalam dunia pengembangan web.
+            Website ini merupakan proyek pertama saya untuk memahami HTML, CSS, dan teknologi web lainnya.
+        </p>
+        <p>
+            Website ini berisi informasi tentang <b>perpustakaan digital</b>, yang memungkinkan akses ke koleksi buku, jurnal,
+            dan referensi ilmiah secara online tanpa perlu datang ke perpustakaan fisik.
         </p>
 
-        <p>
-            Website ini berisi informasi mengenai <b>perpustakaan digital</b>, yang merupakan salah satu inovasi dalam
-            dunia pendidikan dan literasi. Dengan adanya perpustakaan digital, pengguna dapat dengan mudah mengakses
-            berbagai koleksi buku, jurnal, dan referensi ilmiah secara online tanpa harus datang langsung ke perpustakaan
-            fisik.
-        </p>
-
-        <p>
-            Saya berharap melalui website ini, saya tidak hanya bisa belajar lebih dalam mengenai pengembangan web,
-            tetapi juga dapat berbagi informasi bermanfaat dengan orang lain. Saya berencana untuk terus memperbarui dan
-            meningkatkan fitur-fitur dalam website ini agar lebih interaktif dan informatif.
-        </p>
-
-        <!-- Search Bar -->
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Cari sesuatu...">
             <button onclick="searchFunction()">Cari</button>
         </div>
     </div>
 
-    <!-- External Link -->
     <div class="external-link">
         <a href="https://library.usu.ac.id/" target="_blank">Kunjungi Perpustakaan USU</a>
     </div>
-    <br>
-
-    <!-- Footer -->
+    
     <div class="footer">
         &copy; 2025 Perpustakaan Ronal Maruhal Sihite
     </div>
 
     <script>
         function searchFunction() {
-            var input, filter, container, p, txtValue;
-            input = document.getElementById('searchInput');
-            filter = input.value.toUpperCase();
-            container = document.getElementsByClassName('container')[0];
-            p = container.getElementsByTagName('p');
+            var input = document.getElementById('searchInput');
+            var filter = input.value.toUpperCase();
+            var container = document.getElementsByClassName('container')[0];
+            var p = container.getElementsByTagName('p');
 
             for (var i = 0; i < p.length; i++) {
-                txtValue = p[i].textContent || p[i].innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    p[i].style.display = "";
-                } else {
-                    p[i].style.display = "none";
-                }
+                var txtValue = p[i].textContent || p[i].innerText;
+                p[i].style.display = txtValue.toUpperCase().includes(filter) ? "" : "none";
             }
         }
     </script>
 </body>
-
 </html>
-
-
-</body>
-
-</html>
-
