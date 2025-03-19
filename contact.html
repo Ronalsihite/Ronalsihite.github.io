@@ -15,42 +15,37 @@
             padding: 0;
             font-size: 14px;
         }
+
+        .header {
+            background-color: #3b5998; /* Biru tua */
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
         .logo {
             height: 50px;
             width: auto;
         }
-        /* Header */
-        .header {
-            background-color: #3b5998; /* Biru tua */
-            color: white;
-            text-align: center;
-            padding: 15px 0;
-            font-size: 22px;
-            font-weight: bold;
+
+        .nav-container {
+            display: flex;
+            gap: 15px;
         }
 
-        /* Navigation */
-        nav {
-            background-color: #3b5998;
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            padding: 10px 20px;
-        }
-
-        nav a {
+        .nav-container a {
             color: white;
             text-decoration: none;
-            margin: 0 10px;
-            font-size: 12px;
+            font-size: 14px;
             font-weight: bold;
         }
 
-        nav a:hover {
+        .nav-container a:hover {
             color: #ffcc00;
         }
 
-        /* Container */
         .container {
             background-color: white;
             width: 60%;
@@ -76,7 +71,6 @@
             color: white;
         }
 
-        /* Footer */
         .footer {
             background-color: #3b5998;
             color: white;
@@ -90,8 +84,7 @@
 </head>
 
 <body>
-    <!-- Navigation Bar -->
-     <div class="header">
+    <div class="header">
         <img src="logo.png" class="logo" alt="Universitas Sumatera Utara">
         <div class="nav-container">
             <a href="index.html">Homepage</a>
@@ -100,10 +93,9 @@
         </div>
     </div>
 
-    <!-- Main Content -->
     <div class="container">
         <h2>Perpustakaan Digital</h2>
-        <p>Perpustakaan ini merupakan perpustakaan pribadi yang dirancang sebagai pusat penyimpanan dan akses berbagai sumber belajar, seperti kumpulan tugas, e-book, dan e-jurnal. Dengan adanya perpustakaan ini, pengguna dapat dengan mudah menemukan serta mengakses informasi yang relevan untuk menunjang kegiatan akademik maupun pengembangan diri. Selain itu, perpustakaan ini berfungsi sebagai wadah penyimpanan pengetahuan yang terstruktur dengan baik, sehingga referensi yang tersedia dapat dimanfaatkan secara optimal. Melalui koleksi yang tertata rapi, perpustakaan ini diharapkan dapat mendukung proses pembelajaran yang lebih efektif dan efisien, sekaligus menjadi sarana bagi pengguna untuk memperluas wawasan dan meningkatkan keterampilan dalam berbagai bidang.</p>
+        <p>Perpustakaan ini merupakan perpustakaan pribadi yang dirancang sebagai pusat penyimpanan dan akses berbagai sumber belajar, seperti kumpulan tugas, e-book, dan e-jurnal. Dengan adanya perpustakaan ini, pengguna dapat dengan mudah menemukan serta mengakses informasi yang relevan untuk menunjang kegiatan akademik maupun pengembangan diri.</p>
         
         <h3>Informasi Pribadi</h3>
         <table>
@@ -134,9 +126,11 @@
         </table>
     </div>
 
-    <!-- Footer -->
     <div class="footer">&copy; 2025 Perpustakaan Ronal Maruhal Sihite</div>
 </body>
+
+</html>
+
 
 </html>
 
