@@ -16,7 +16,6 @@
       background-color: #f4f6f8;
       margin: 0;
       transition: background-color .3s, color .3s;
-      position: relative;
       scroll-behavior: smooth;
     }
     /* Progress bar */
@@ -33,7 +32,7 @@
     .navbar-brand, .nav-link {
       color: #fff !important; font-weight: 600;
     }
-    .nav-link:hover, .nav-link.active {
+    .nav-link:hover {
       color: #ffd700 !important;
     }
     /* Dark mode */
@@ -90,7 +89,7 @@
     }
   </style>
 </head>
-<body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="80" tabindex="0">
+<body>
 
   <!-- Progress Bar -->
   <div id="progressBar"></div>
@@ -98,18 +97,15 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Perpustakaan Ronal</a>
-      <button class="navbar-toggler" type="button"
-              data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <a class="navbar-brand" href="#hero">Perpustakaan Ronal</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon text-white"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#hero">Beranda</a></li>
-          <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
-          <li class="nav-item"><a class="nav-link" href="#koleksi">Koleksi</a></li>
-          <li class="nav-item"><a class="nav-link" href="#tutorial">Tutorial</a></li>
-          <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item">
+            <a class="nav-link" href="#hero">Beranda</a>
+          </li>
           <li class="nav-item ps-3">
             <button id="darkToggle" class="btn btn-sm btn-light">
               <i class="fas fa-moon"></i>
@@ -125,7 +121,7 @@
     <div class="container">
       <h1>Jelajahi Dunia Pengetahuan Tanpa Batas</h1>
       <p class="lead">Bergabunglah dengan Perpustakaan Digital Ronal untuk akses referensi ilmiah kapan saja.</p>
-      <button class="btn btn-cta mt-3" onclick="document.querySelector('a[href=\'#koleksi\']').click()">
+      <button class="btn btn-cta mt-3" onclick="window.location.href='#tentang'">
         Mulai Eksplorasi
       </button>
     </div>
@@ -251,12 +247,6 @@
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const scrolled = (window.scrollY / docHeight) * 100;
       document.getElementById('progressBar').style.width = scrolled + '%';
-    });
-
-    // Activate Bootstrap scrollspy
-    const scrollSpy = new bootstrap.ScrollSpy(document.body, {
-      target: '#navbarNav',
-      offset: 80
     });
   </script>
 </body>
