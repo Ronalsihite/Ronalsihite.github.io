@@ -11,8 +11,7 @@
   <!-- FontAwesome -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
-<style>
-  body {
+    body {
       font-family: 'Poppins', sans-serif;
       background-color: #f4f6f8;
       margin: 0; transition: background-color .3s, color .3s;
@@ -64,8 +63,6 @@
     @media (max-width: 768px) {
       .hero h1 { font-size: 2rem; }
     }
-</style>
-
   </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="100" tabindex="0">
@@ -83,13 +80,13 @@
       <div class="collapse navbar-collapse justify-content-end" id="nav">
         <ul class="navbar-nav align-items-center">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Beranda</a>
+            <a class="nav-link" href="#hero">Beranda</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Tentang</a>
+            <a class="nav-link" href="#contact">Tentang</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="biodata.html">Kontak</a>
+            <a class="nav-link" href="#contact">Kontak</a>
           </li>
           <li class="nav-item ps-3">
             <button id="darkToggle" class="btn btn-sm btn-light">
@@ -106,38 +103,35 @@
     <div class="container">
       <h1>Selamat Datang di Perpustakaan Digital Ronal</h1>
       <p class="lead">Pusat akses e-book, e-jurnal, dan referensi akademik untuk mendukung belajar Anda kapan saja.</p>
-      <button class="btn btn-cta mt-3" onclick="document.querySelector('a[href=\'#contact\']').click()">
-        Hubungi Saya
-      </button>
+      <button class="btn btn-cta mt-3" onclick="document.querySelector('a[href=\'#contact\']').click()">Hubungi Saya</button>
     </div>
   </section>
 
- <!-- Contact Section -->
-<section id="contact">
-  <div class="container">
-    <div class="contact-card">
-      <h2 class="text-center">Hubungi Saya</h2>
-      <form class="row g-3">
-        <div class="col-md-6">
-          <label for="name" class="form-label">Nama</label>
-          <input type="text" id="name" class="form-control" placeholder="Nama Anda" required>
-        </div>
-        <div class="col-md-6">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" id="email" class="form-control" placeholder="Email Anda" required>
-        </div>
-        <div class="col-12">
-          <label for="message" class="form-label">Pesan</label>
-          <textarea id="message" rows="5" class="form-control" placeholder="Tulis pesan…" required></textarea>
-        </div>
-        <div class="col-12 text-center">
-          <button type="submit" class="btn btn-primary btn-submit">Kirim Pesan</button>
-        </div>
-      </form>
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-card">
+        <h2 class="text-center">Hubungi Saya</h2>
+        <form class="row g-3">
+          <div class="col-md-6">
+            <label for="name" class="form-label">Nama</label>
+            <input type="text" id="name" class="form-control" placeholder="Nama Anda" required>
+          </div>
+          <div class="col-md-6">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" class="form-control" placeholder="Email Anda" required>
+          </div>
+          <div class="col-12">
+            <label for="message" class="form-label">Pesan</label>
+            <textarea id="message" rows="5" class="form-control" placeholder="Tulis pesan…" required></textarea>
+          </div>
+          <div class="col-12 text-center">
+            <button type="submit" class="btn btn-primary btn-submit">Kirim Pesan</button>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- Footer -->
   <footer class="footer">
